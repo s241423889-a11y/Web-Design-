@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Super Fruit Valley Padang Besar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gallery</h1>
+    <p>Super Fruit Valley - Our Farm & Produce</p>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="container">
+    <div class="card">
+      <h2>Upload Your Pictures</h2>
+      <p>Drop your farm, fruits, or business photos here to showcase.</p>
+      <input type="file" id="imageUpload" accept="image/*" multiple>
+      <div id="imagePreview" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;"></div>
+    </div>
+    <div class="card">
+      <h2>Gallery</h2>
+      <div class="grid" id="galleryGrid">
+        <!-- Images will appear here -->
+        <!-- Placeholder images - replace src with your pictures -->
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Lemon" alt="Lemon">
+          <h3>Lemon</h3>
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x300/8BC34A/FFFFFF?text=Fig+Fruit" alt="Fig Fruit">
+          <h3>Fig Fruit</h3>
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Gac+Fruit" alt="Gac Fruit">
+          <h3>Gac Fruit</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Super Fruit Valley, Chuping, Perlis. All rights reserved. | Owned by Robin Lim</p>
+  </footer>
+
+  <script>
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    imageUpload.addEventListener('change', function(e) {
+      Array.from(e.target.files).forEach(file => {
+        if (file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            galleryItem.innerHTML = `
+              <img src="${e.target.result}" alt="${file.name}">
+              <h3>${file.name}</h3>
+            `;
+            imagePreview.appendChild(galleryItem);
+            // Optionally append to main gallery
+            galleryGrid.appendChild(galleryItem.cloneNode(true));
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
