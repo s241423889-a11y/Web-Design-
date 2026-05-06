@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Super Fruit Valley Padang Besar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <p>Get in touch with Super Fruit Valley</p>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+    <div class="card">
+      <h2>Visit Us</h2>
+      <p><strong>Super Fruit Valley</strong><br>
+      Chuping, Perlis, Malaysia<br>
+      Phone: +60 12-225-1525<br>
+      Email: hello@superfruitsvalley.com</p>
+      <!-- Embed map placeholder -->
+      <div style="height: 300px; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+        Map coming soon...
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Super Fruit Valley, Chuping, Perlis. All rights reserved. | Owned by Robin Lim</p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const messageEl = document.getElementById('formMessage');
+      messageEl.textContent = 'Thank you! Your message has been sent. We\'ll get back to you soon.';
+      messageEl.style.background = '#4CAF50';
+      messageEl.style.color = 'white';
+      messageEl.style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
